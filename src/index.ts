@@ -5,6 +5,10 @@ import morgan from 'morgan';
 import { workflowRouter } from './routes/workflow';
 import { rpcRouter } from './routes/rpc';
 import { healthRouter } from './routes/health';
+import { tokenRouter } from './routes/token';
+import { transactionRouter } from './routes/transaction';
+import { nftRouter } from './routes/nft';
+import { programRouter } from './routes/program';
 import { errorHandler } from './middleware/errorHandler';
 
 const app = express();
@@ -23,6 +27,10 @@ app.use(express.json({ limit: '10mb' }));
 app.use('/api/health', healthRouter);
 app.use('/api/workflows', workflowRouter);
 app.use('/api/rpc', rpcRouter);
+app.use('/api/tokens', tokenRouter);
+app.use('/api/transactions', transactionRouter);
+app.use('/api/nfts', nftRouter);
+app.use('/api/programs', programRouter);
 
 // Error handling
 app.use(errorHandler);

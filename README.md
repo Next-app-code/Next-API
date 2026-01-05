@@ -8,7 +8,8 @@
 
 Backend API service for Next workflow management.
 
-**CA**: `HZ2vrUNo4xVfF85oVyodRLFG1WCnZCRGe3qBcAUZpump`
+**CA**: `HZ2vrUNo4xVfF85oVyodRLFG1WCnZCRGe3qBcAUZpump`  
+[View on Pump.fun](https://pump.fun/coin/HZ2vrUNo4xVfF85oVyodRLFG1WCnZCRGe3qBcAUZpump)
 
 </div>
 
@@ -71,13 +72,42 @@ npm start
 - `DELETE /api/workflows/:id` - Delete workflow
 - `POST /api/workflows/validate` - Validate workflow structure
 
-### RPC Proxy
+### RPC Operations (11 endpoints)
 
 - `POST /api/rpc/test` - Test RPC connection
-- `POST /api/rpc/balance` - Get account balance
-- `POST /api/rpc/account` - Get account info
+- `POST /api/rpc/balance` - Get account balance (SOL)
+- `POST /api/rpc/account` - Get account information
 - `POST /api/rpc/blockhash` - Get recent blockhash
-- `POST /api/rpc/slot` - Get current slot
+- `POST /api/rpc/slot` - Get current slot and block height
+- `POST /api/rpc/epoch` - Get epoch information
+- `POST /api/rpc/performance` - Get performance samples
+- `POST /api/rpc/block` - Get block by slot
+- `POST /api/rpc/validators` - Get validator information
+- `POST /api/rpc/cluster-nodes` - Get cluster nodes
+- `POST /api/rpc/supply` - Get SOL supply information
+
+### Token Operations (3 endpoints)
+
+- `POST /api/tokens/balance` - Get SPL token balance(s)
+- `POST /api/tokens/supply` - Get token supply
+- `POST /api/tokens/accounts` - Get token accounts by owner
+
+### Transaction Operations (4 endpoints)
+
+- `POST /api/transactions/get` - Get transaction details
+- `POST /api/transactions/status` - Get transaction status
+- `POST /api/transactions/recent` - Get recent transactions for address
+- `POST /api/transactions/simulate` - Simulate transaction execution
+
+### NFT Operations (2 endpoints)
+
+- `POST /api/nfts/by-owner` - Get all NFTs owned by address
+- `POST /api/nfts/metadata` - Get NFT metadata by mint
+
+### Program Operations (2 endpoints)
+
+- `POST /api/programs/accounts` - Get all accounts for a program
+- `POST /api/programs/account-size` - Get account data size
 
 ## Authentication
 
