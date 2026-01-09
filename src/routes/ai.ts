@@ -74,13 +74,14 @@ Rules:
         'Authorization': `Bearer ${OPENAI_API_KEY}`,
       },
       body: JSON.stringify({
-        model: 'gpt-4o',
+        model: 'gpt-5.2',
         messages: [
           { role: 'system', content: systemPrompt },
           { role: 'user', content: prompt }
         ],
         temperature: 0.7,
-        max_tokens: 2000,
+        max_tokens: 4000,
+        reasoning_effort: 'high',
       }),
     });
     
@@ -107,7 +108,8 @@ Rules:
     res.json({
       workflow,
       prompt,
-      model: 'gpt-4o',
+      model: 'gpt-5.2',
+      reasoning: data.choices[0]?.message?.reasoning_content || null,
     });
   } catch (error) {
     console.error('AI workflow generation error:', error);
@@ -143,10 +145,11 @@ Suggest 3 most logical next nodes to add to this workflow. Respond with JSON arr
         'Authorization': `Bearer ${OPENAI_API_KEY}`,
       },
       body: JSON.stringify({
-        model: 'gpt-4o-mini',
+        model: 'gpt-5.2',
         messages: [{ role: 'user', content: prompt }],
         temperature: 0.5,
-        max_tokens: 300,
+        max_tokens: 500,
+        reasoning_effort: 'medium',
       }),
     });
     
