@@ -11,6 +11,7 @@ import { nftRouter } from './routes/nft';
 import { programRouter } from './routes/program';
 import { paymentRouter } from './routes/payment';
 import { bagsRouter } from './routes/bags';
+import { aiRouter } from './routes/ai';
 import { errorHandler } from './middleware/errorHandler';
 
 const app = express();
@@ -35,6 +36,7 @@ app.use('/api/nfts', nftRouter);
 app.use('/api/programs', programRouter);
 app.use('/api/payments', paymentRouter);
 app.use('/api/bags', bagsRouter);
+app.use('/api/ai', aiRouter);
 
 // Error handling
 app.use(errorHandler);
